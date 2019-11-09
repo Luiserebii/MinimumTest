@@ -12,33 +12,48 @@
 class Mint { 
 
     public:
-        enum Status { PASS, FAIL };
+        //Substitute for scoped enums - meant to be compatible pre-C++11
+        struct Status {
+            enum Enum { PASS, FAIL };
+        };
 
         //Constructors
         Mint();
 
-        Status getStatus() const { return status; }
-        
-        template <class T> void assert(const T val, const T exp);
+        Status::Enum getStatus() const { return status; }
+ 
+        //Assert functions       
+        void assert(bool b, const std::string& s);
+        template <class T> void equal(const T val, const T exp);
 
 
     private:
-        Status status;
-
-
-
+        Status::Enum status;
 };
 
-Mint::Mint(): status(PASS) {
+Mint::Mint(): status(Status::PASS) {
 
+}
+
+void Mint::assert(bool b, const std::string& title, const std::string& s) {
+    std::cout << title;
+    if(!b) { 
+        std::cout << " ✘" << endl;
+        std::cout << "FAIL: " << s << "✘" << std::endl;
+        status = Status::FAIL;
+    } else {
+        << "✔" << std::endl;
+    }
 }
 
 template <class T>
-void Mint::assert(const T val, const T exp) {
-    if(val != exp) std::cout << "FAIL: Expected int \"" << exp << "\", found: \"" << val << "\"" << std::endl;
+void Mint::equal(const T val, const T exp, const std::string& title) {
+    if(val != exp) {
+        std::cout << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
+        status = Status::FAIL;
+    } else {
+        << "✔" << std::endl;
+    }
 }
-/*
-inline void assert(bool b, const std::string& s) {
-    if(!b) std::cout << "FAIL: " << s << std::endl;
-}*/
+
 
