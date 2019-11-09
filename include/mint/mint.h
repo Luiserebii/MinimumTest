@@ -22,9 +22,12 @@ class Mint {
 
         Status::Enum getStatus() const { return status; }
  
+        //Test titling functions
+        void title(const std::string& title, int borderNum=2);
+
         //Assert functions       
-        void assert(bool b, const std::string& s);
-        template <class T> void equal(const T val, const T exp);
+        void assert(bool b, const std::string& title, const std::string& s);
+        template <class T> void equal(const T val, const T exp, const std::string& title);
 
 
     private:
@@ -34,6 +37,16 @@ class Mint {
 Mint::Mint(): status(Status::PASS) {
 
 }
+
+void Mint::title(const std::string& title, int borderNum) {
+    //Create border
+    int size = title.length() + (borderNum * 2); 
+    std::string border('=', size);
+    //Print
+    std::cout << border << std::endl << title << std::endl 
+        << border << std::endl;
+}
+
 
 void Mint::assert(bool b, const std::string& title, const std::string& s) {
     std::cout << title;
