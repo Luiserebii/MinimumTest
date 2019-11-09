@@ -20,8 +20,11 @@ class Mint {
         //Constructors
         Mint();
 
+        //Getters/setters
         Status::Enum getStatus() const { return status; }
- 
+        std::string getTab() const { return tab; }
+        std::string setTab(std::string t) { tab = t; }
+
         //Test titling functions
         void title(const std::string& title, int borderNum=2);
 
@@ -32,9 +35,10 @@ class Mint {
 
     private:
         Status::Enum status;
+        std::string tab;
 };
 
-Mint::Mint(): status(Status::PASS) {
+Mint::Mint(): status(Status::PASS), tab(std::string(4, ' ')) {
 
 }
 
@@ -53,7 +57,7 @@ void Mint::assert(bool b, const std::string& title, const std::string& s) {
     std::cout << title;
     if(!b) { 
         std::cout << " ✘" << std::endl
-            << "FAIL: " << s << std::endl;
+            << tab << "FAIL: " << s << std::endl;
         status = Status::FAIL;
     } else {
         std::cout << " ✔" << std::endl;
@@ -65,7 +69,7 @@ void Mint::equal(const T val, const T exp, const std::string& title) {
     std::cout << title;
     if(val != exp) {
         std::cout << " ✘" << std::endl
-            << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
+            << tab << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
         status = Status::FAIL;
     } else {
         std::cout << " ✔" << std::endl;

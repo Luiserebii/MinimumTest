@@ -9,7 +9,10 @@ using std::string;
 int main() {
 
     Mint m;
-    m.title("Basic test");
-    m.equal(1, 4, "number equality");
+    m.title("Sample Test");
+    m.equal(2, 2, "number equality");
+    m.equal(1, 4, "number inequality");
+    m.assert(true, "true", "true is not true");
+    m.assert(false, "false", "false is false");
 
 }
