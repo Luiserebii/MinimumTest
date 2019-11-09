@@ -14,7 +14,7 @@ class Mint {
     public:
         //Substitute for scoped enums - meant to be compatible pre-C++11
         struct Status {
-            enum Enum { PASS, FAIL };
+            enum Enum { SUCCESS, FAIL };
         };
 
         //Constructors
@@ -32,13 +32,15 @@ class Mint {
         void assert(bool b, const std::string& title, const std::string& s);
         template <class T> void equal(const T val, const T exp, const std::string& title);
 
+        //Other
+        int end();
 
     private:
         Status::Enum status;
         std::string tab;
 };
 
-Mint::Mint(): status(Status::PASS), tab(std::string(4, ' ')) {
+Mint::Mint(): status(Status::SUCCESS), tab(std::string(4, ' ')) {
 
 }
 
@@ -76,4 +78,13 @@ void Mint::equal(const T val, const T exp, const std::string& title) {
     }
 }
 
+int Mint::end() {
+    if(status == Status::SUCCESS) {
+        std::cout << "All tests passing! Returned with exit code \"" << status << "\"." << std::endl;
+    } else if(status == Status::FAIL) {
+        std::cout << "Tests failing! Returned with exit code \"" << status << "\"." << std::endl;
+    }
+    //Return status as exit code
+    return status;
+}
 
