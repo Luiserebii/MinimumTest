@@ -15,7 +15,7 @@ class Mint {
         enum Status { PASS, FAIL };
 
         //Constructors
-        Mint(): status(PASS);
+        Mint();
 
         Status getStatus() const { return status; }
         
@@ -29,6 +29,10 @@ class Mint {
 
 };
 
+Mint::Mint(): status(PASS) {
+
+}
+
 template <class T>
 void Mint::assert(const T val, const T exp) {
     if(val != exp) std::cout << "FAIL: Expected int \"" << exp << "\", found: \"" << val << "\"" << std::endl;
@@ -38,5 +42,3 @@ inline void assert(bool b, const std::string& s) {
     if(!b) std::cout << "FAIL: " << s << std::endl;
 }*/
 
-
-}
