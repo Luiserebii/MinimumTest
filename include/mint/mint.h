@@ -29,9 +29,9 @@ class Mint {
         void title(const std::string& title, int borderNum=2);
 
         //Assert functions       
-        void assert(bool b, const std::string& title, const std::string& s);
+        void assert(bool b, const std::string& title, const std::string& fail);
         template <class T> void equal(const T val, const T exp, const std::string& title);
-        void throws(void f(), const std::string& title);
+        void throws(void f(), const std::string& title, const std::string& fail);
 
         //Other
         int end();
@@ -56,11 +56,11 @@ void Mint::title(const std::string& title, int borderNum) {
 }
 
 
-void Mint::assert(bool b, const std::string& title, const std::string& s) {
+void Mint::assert(bool b, const std::string& title, const std::string& fail) {
     std::cout << title;
     if(!b) { 
         std::cout << " ✘" << std::endl
-            << tab << "FAIL: " << s << std::endl;
+            << tab << "FAIL: " << fail << std::endl;
         status = Status::FAIL;
     } else {
         std::cout << " ✔" << std::endl;
@@ -89,7 +89,7 @@ int Mint::end() {
     return status;
 }
 
-void Mint::throws(void f(), const std::string& title) {
+void Mint::throws(void f(), const std::string& title, const std::string& fail) {
     std::cout << title;
     try {
         f();
@@ -98,5 +98,5 @@ void Mint::throws(void f(), const std::string& title) {
         return;
     }
     std::cout << " ✘" << std::endl
-        << tab << "FAIL: " << s << " (function did not throw)" << std::endl;
+        << tab << "FAIL: " << fail << " (function did not throw)" << std::endl;
 }
