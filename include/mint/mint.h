@@ -31,6 +31,7 @@ class Mint {
         //Assert functions       
         void assert(bool b, const std::string& title, const std::string& s);
         template <class T> void equal(const T val, const T exp, const std::string& title);
+        void throws(void f(), const std::string& title);
 
         //Other
         int end();
@@ -88,3 +89,14 @@ int Mint::end() {
     return status;
 }
 
+void Mint::throws(void f(), const std::string& title) {
+    std::cout << title;
+    try {
+        f();
+    } catch(...) {
+        std::cout << " ✔" << std::endl;
+        return;
+    }
+    std::cout << " ✘" << std::endl
+        << tab << "FAIL: " << s << " (function did not throw)" << std::endl;
+}
