@@ -41,9 +41,10 @@ Mint::Mint(): status(Status::PASS) {
 void Mint::title(const std::string& title, int borderNum) {
     //Create border
     int size = title.length() + (borderNum * 2); 
-    std::string border('=', size);
+    std::string border(size, '=');
+    std::string pad(borderNum, ' ');
     //Print
-    std::cout << border << std::endl << title << std::endl 
+    std::cout << border << std::endl << pad << title << std::endl 
         << border << std::endl;
 }
 
