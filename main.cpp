@@ -6,6 +6,7 @@ using std::endl;
 
 int main() {
 
-
     Mint m;
+    m.equal(1, 4);
+
 }

@@ -38,21 +38,23 @@ Mint::Mint(): status(Status::PASS) {
 void Mint::assert(bool b, const std::string& title, const std::string& s) {
     std::cout << title;
     if(!b) { 
-        std::cout << " ✘" << endl;
-        std::cout << "FAIL: " << s << "✘" << std::endl;
+        std::cout << " ✘" << std::endl
+            << "FAIL: " << s << std::endl;
         status = Status::FAIL;
     } else {
-        << "✔" << std::endl;
+        std::cout << " ✔" << std::endl;
     }
 }
 
 template <class T>
 void Mint::equal(const T val, const T exp, const std::string& title) {
+    std::cout << title;
     if(val != exp) {
-        std::cout << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
+        std::cout << " ✘" << std::endl
+            << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
         status = Status::FAIL;
     } else {
-        << "✔" << std::endl;
+        std::cout << " ✔" << std::endl;
     }
 }
 
