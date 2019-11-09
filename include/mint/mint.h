@@ -80,9 +80,9 @@ void Mint::equal(const T val, const T exp, const std::string& title) {
 
 int Mint::end() {
     if(status == Status::SUCCESS) {
-        std::cout << "All tests passing! Returned with exit code \"" << status << "\"." << std::endl;
+        std::cout << std::endl << "All tests passing! Returned with exit code \"" << status << "\"." << std::endl;
     } else if(status == Status::FAIL) {
-        std::cout << "Tests failing! Returned with exit code \"" << status << "\"." << std::endl;
+        std::cout << std::endl << "Tests failing! Returned with exit code \"" << status << "\"." << std::endl;
     }
     //Return status as exit code
     return status;

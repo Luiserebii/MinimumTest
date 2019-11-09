@@ -15,4 +15,6 @@ int main() {
     m.assert(true, "true", "true is not true");
     m.assert(false, "false", "false is false");
 
+    //Finish tests, and return exit code
+    return m.end();
 }
