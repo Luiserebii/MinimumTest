@@ -33,6 +33,8 @@ m.title("Integers");
 
 #### void assert(bool b, const std::string& title, const std::string& fail)
 
+Test to see if an expression is true. If the test fails, the `fail` string will be printed.
+
 **Params**:
 
  - b `bool` - Expression to test
@@ -49,6 +51,8 @@ m.assert(1 < 2, "Larger integers are larger", "Larger integer not larger");
 
 #### void equal(const T val, const T exp, const std::string& title)
 
+Test to see if a value `val` is equal to `exp`. If the test fails, the `fail` string will be printed.
+
 **Params**:
 
  - val `T` - Value to test against second expected value
@@ -63,6 +67,8 @@ m.equal(1, 1, "Equal integers are equal");
 ---
 
 #### void throws(void f(), const std::string& title, const std::string& fail)
+
+Test to see if a function `f` throws an exception. If the test fails (and the function does not throw an exception), the `fail` string will be printed.
 
 **Params**:
 
@@ -86,6 +92,8 @@ m.throws(willThrow, "willThrow() throws error", "willThrow() failed to throw err
 ---
 
 #### int end()
+
+Return an exit code representing the success of the test. Necessary for using on CI/CD Integration tools like TravisCI, as they listen for this code.
 
 **Returns**: Exit code `int`
 
