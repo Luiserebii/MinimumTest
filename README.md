@@ -1,6 +1,9 @@
 # Mint
 ![mint-image](https://i.imgur.com/aM2SNDD.png)
 
+![GitHub](https://img.shields.io/github/license/Luiserebii/Mint?color=g)
+[![CircleCI](https://circleci.com/gh/Luiserebii/Mint.svg?style=svg)](https://circleci.com/gh/Luiserebii/Mint)
+
 Mint is a minimal header-only C++ test runner.
 
 ## Installation
