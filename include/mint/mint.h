@@ -57,25 +57,23 @@ void Mint::title(const std::string& title, int borderNum) {
 
 
 void Mint::assert(bool b, const std::string& title, const std::string& fail) {
-    std::cout << title;
     if(!b) { 
-        std::cout << " ✘" << std::endl
+        std::cout << "✘ " << title << std::endl
             << tab << "FAIL: " << fail << std::endl;
         status = Status::FAIL;
     } else {
-        std::cout << " ✔" << std::endl;
+        std::cout << "✔ " << title << std::endl;
     }
 }
 
 template <class T>
 void Mint::equal(const T val, const T exp, const std::string& title) {
-    std::cout << title;
     if(val != exp) {
-        std::cout << " ✘" << std::endl
+        std::cout << "✘ " << title << std::endl
             << tab << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
         status = Status::FAIL;
     } else {
-        std::cout << " ✔" << std::endl;
+        std::cout << "✔ " << title << std::endl;
     }
 }
 
@@ -90,13 +88,12 @@ int Mint::end() {
 }
 
 void Mint::throws(void f(), const std::string& title, const std::string& fail) {
-    std::cout << title;
     try {
         f();
     } catch(...) {
-        std::cout << " ✔" << std::endl;
+        std::cout << "✔ " << title << std::endl;
         return;
     }
-    std::cout << " ✘" << std::endl
+    std::cout << "✘ " << title << std::endl
         << tab << "FAIL: " << fail << " (function did not throw)" << std::endl;
 }

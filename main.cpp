@@ -13,8 +13,9 @@ void willNotThrow();
 
 int main() {
 
-    //Declare an intialize Mint
+    //Declare and intialize Mint
     Mint m;
+
     //Title test
     m.title("Sample Test");
 
@@ -24,9 +25,8 @@ int main() {
     m.assert(true, "true", "true is not true");
     m.assert(false, "false", "false is false");
 
-    m.throws(willThrow, "throws caught", "willThrow() failed to throw");
-    m.throws(willNotThrow, "throws not caught", "willNotThrow() failed to throw");
-
+    m.throws(willThrow, "throws caught from throwing function", "willThrow() failed to throw");
+    m.throws(willNotThrow, "throws not caught from non-throwing function", "willNotThrow() failed to throw");
 
     //Finish tests, and return exit code
     return m.end();
