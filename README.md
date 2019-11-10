@@ -1,5 +1,5 @@
 # Mint
-![mint-image](https://i.imgur.com/pRvSub6.png)
+![mint-image](https://i.imgur.com/LAir2hM.png)
 
 Mint is a minimal header-only C++ test runner.
 
