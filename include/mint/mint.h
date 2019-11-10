@@ -39,9 +39,11 @@ class Mint {
     private:
         Status::Enum status;
         std::string tab;
+        int testsPassing;
+        int testsFailing;
 };
 
-Mint::Mint(): status(Status::SUCCESS), tab(std::string(4, ' ')) {
+Mint::Mint(): status(Status::SUCCESS), tab(std::string(4, ' ')), testsPassing(0), testsFailing(0) {
 
 }
 
@@ -61,8 +63,10 @@ void Mint::assert(bool b, const std::string& title, const std::string& fail) {
         std::cout << "✘ " << title << std::endl
             << tab << "FAIL: " << fail << std::endl;
         status = Status::FAIL;
+        ++testsFailing;
     } else {
         std::cout << "✔ " << title << std::endl;
+        ++testsPassing;
     }
 }
 
@@ -72,19 +76,11 @@ void Mint::equal(const T val, const T exp, const std::string& title) {
         std::cout << "✘ " << title << std::endl
             << tab << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
         status = Status::FAIL;
+        ++testsFailing;
     } else {
         std::cout << "✔ " << title << std::endl;
+        ++testsPassing;
     }
-}
-
-int Mint::end() {
-    if(status == Status::SUCCESS) {
-        std::cout << std::endl << "All tests passing! Returned with exit code \"" << status << "\"." << std::endl;
-    } else if(status == Status::FAIL) {
-        std::cout << std::endl << "Tests failing! Returned with exit code \"" << status << "\"." << std::endl;
-    }
-    //Return status as exit code
-    return status;
 }
 
 void Mint::throws(void f(), const std::string& title, const std::string& fail) {
@@ -92,8 +88,22 @@ void Mint::throws(void f(), const std::string& title, const std::string& fail) {
         f();
     } catch(...) {
         std::cout << "✔ " << title << std::endl;
+        ++testsPassing;
         return;
     }
     std::cout << "✘ " << title << std::endl
         << tab << "FAIL: " << fail << " (function did not throw)" << std::endl;
+    ++testsFailing;
+}
+
+int Mint::end() {
+    if(status == Status::SUCCESS) {
+        std::cout << std::endl << "SUCCESS! All tests (" << testsPassing << 
+            ") passing with no tests failing. Returned with exit code \"" << status << "\"." << std::endl;
+    } else if(status == Status::FAIL) {
+        std::cout << std::endl << "FAIL! " << testsFailing << " tests failing with " << testsPassing 
+            << " tests passing. Returned with exit code \"" << status << "\"." << std::endl;
+    }
+    //Return status as exit code
+    return status;
 }
