@@ -7,19 +7,19 @@ aliases:
       - image: debian:stretch
     
   - &install_packages
-    run: 
-      name: Install gcc
-      command: apt-get update && apt-get install -y gcc g++
-    run: 
-      name: Install CMake
-      command: apt-get update && apt-get install -y cmake
+    - run: 
+        name: Install gcc
+        command: apt-get update && apt-get install -y gcc g++
+    - run: 
+        name: Install CMake
+        command: apt-get update && apt-get install -y cmake
 
 jobs:
   # Building and running examples
   minimum:
     <<: *defaults
     steps:
-      - *install_packages
+      <<: *install_packages
       - checkout
       - run:
           name: Minimum - Simple
