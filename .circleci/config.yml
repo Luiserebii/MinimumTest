@@ -1,0 +1,32 @@
+version: 2
+
+aliases:
+  # Alias for any default options
+  - &defaults
+    docker:
+      - image: debian:stretch
+
+jobs:
+  # Building and running examples
+  minimum:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Minimum - Simple
+          command: cd examples/minimal/simple && ./c.sh
+      - run:
+          name: Minimum - Assertions
+          command: cd examples/minimal/assertions && ./c.sh
+
+  cmake:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: CMake - Simple
+          command: cd examples/cmake/simple && ./BUILD
+      - run:
+          name: CMake - Assertions
+          command: cd examples/cmake/assertions && ./BUILD
+
