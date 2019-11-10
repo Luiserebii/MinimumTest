@@ -41,6 +41,9 @@ class Mint {
         std::string tab;
         int testsPassing;
         int testsFailing;
+
+        std::ostream& writeTestPass(const std::string& title);
+        std::ostream& writeTestFail(const std::string& title, const std::string& fail);
 };
 
 Mint::Mint(): status(Status::SUCCESS), tab(std::string(4, ' ')), testsPassing(0), testsFailing(0) {
@@ -106,4 +109,9 @@ int Mint::end() {
     }
     //Return status as exit code
     return status;
+}
+
+
+std::ostream& writeTestPass(const std::string& title) {
+    return std::cout << "✔ " << title << std::endl;
 }
