@@ -68,7 +68,7 @@ void Mint::assert(bool b, const std::string& title, const std::string& fail) {
         status = Status::FAIL;
         ++testsFailing;
     } else {
-        std::cout << "✔ " << title << std::endl;
+        writeTestPass(title);
         ++testsPassing;
     }
 }
@@ -81,7 +81,7 @@ void Mint::equal(const T val, const T exp, const std::string& title) {
         status = Status::FAIL;
         ++testsFailing;
     } else {
-        std::cout << "✔ " << title << std::endl;
+        writeTestPass(title);
         ++testsPassing;
     }
 }
@@ -90,7 +90,7 @@ void Mint::throws(void f(), const std::string& title, const std::string& fail) {
     try {
         f();
     } catch(...) {
-        std::cout << "✔ " << title << std::endl;
+        writeTestPass(title);
         ++testsPassing;
         return;
     }
@@ -112,6 +112,6 @@ int Mint::end() {
 }
 
 
-std::ostream& writeTestPass(const std::string& title) {
+std::ostream& Mint::writeTestPass(const std::string& title) {
     return std::cout << "✔ " << title << std::endl;
 }
