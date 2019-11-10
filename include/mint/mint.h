@@ -47,7 +47,7 @@ class Mint {
         std::ostream& writeTestFail(const std::string& title, const std::string& fail);
 };
 
-Mint::Mint(): status(Status::SUCCESS), tab(std::string(4, ' ')), testsPassing(0), testsFailing(0) {
+Mint::Mint(): status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
 
 }
 
@@ -113,12 +113,13 @@ int Mint::end() {
     return status;
 }
 
-
+//✓, ✔
 std::ostream& Mint::writeTestPass(const std::string& title) {
-    return std::cout << "✔ " << title << std::endl;
+    return std::cout << tab << "✓ " << title << std::endl;
 }
 
+//✗, ✘
 std::ostream& Mint::writeTestFail(const std::string& title, const std::string& fail) {
-    return std::cout << "✘ " << title << std::endl
-        << tab << fail << std::endl;
+    return std::cout << tab << "✗ " << title << std::endl
+        << tab << tab << fail << std::endl;
 }
