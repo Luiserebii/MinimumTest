@@ -26,7 +26,7 @@ jobs:
           command: cd examples/minimal/simple && ./c.sh
       - run:
           name: Minimum - Assertions
-          command: cd examples/minimal/assertions && ./c.sh
+          command: bash -c "cd examples/minimal/assertions && ./c.sh; if [[ $? -eq 1 ]]; then exit 0; else exit 1; fi"
 
   cmake:
     <<: *defaults
@@ -44,7 +44,7 @@ jobs:
           command: cd examples/cmake/simple && ./BUILD
       - run:
           name: CMake - Assertions
-          command: cd examples/cmake/assertions && ./BUILD
+          command: bash -c "cd examples/cmake/assertions && ./BUILD; if [[ $? -eq 1 ]]; then exit 0; else exit 1; fi"
 
 workflows:
   version: 2
