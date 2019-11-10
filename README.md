@@ -9,10 +9,6 @@ Mint is a minimal header-only C++ test runner.
 ## Installation
 A `CMakeLists.txt` file has been added for simple linking with CMake. For more on this, check the [`examples/`](examples) directory.
 
-## Documentation
-
-Documentation can be found by checking the [`docs/`](docs) directory.
-
 ## Usage
 Using Mint is intentionally simple. The basic flow of a test program using Mint:
 
@@ -45,6 +41,9 @@ int main() {
 }
 
 ```
+## Documentation
+
+Documentation can be found by checking the [`docs/`](docs) directory.
 
 ## Expected output
 
@@ -53,7 +52,7 @@ Output for the above test:
 ============================
   Testing Integer Equality
 ============================
-✔ integers of same value are equal
+  ✔ integers of same value are equal
 
 SUCCESS! All tests (1) passing with no tests failing. Returned with exit code "0".
 ```
@@ -63,14 +62,14 @@ A snippet from a seperate test:
 ======================
   Testing Assertions
 ======================
-✔ number equality
-✘ number inequality
+  ✔ number equality
+  ✘ number inequality
     FAIL: Expected "4", found: "1"
-✔ true
-✘ false
+  ✔ true
+  ✘ false
     FAIL: false is false
-✔ throws caught from throwing function
-✘ throws not caught from non-throwing function
+  ✔ throws caught from throwing function
+  ✘ throws not caught from non-throwing function
     FAIL: willNotThrow() failed to throw (function did not throw)
 
 FAIL! 3 tests failing with 3 tests passing. Returned with exit code "1".

@@ -1,6 +1,10 @@
 # Mint API
 
-## Mint
+This section contains documentation on using the Mint test framework. Each function is documented with its prototype, a brief description, and examples. Any function listed underneath a class that is not a constructor can be assumed to be a member function of that class.
+
+## class Mint
+
+The Mint object, which is the main point of interface for the runner.
 
 #### Mint()
 
