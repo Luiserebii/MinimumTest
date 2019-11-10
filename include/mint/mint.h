@@ -63,8 +63,7 @@ void Mint::title(const std::string& title, int borderNum) {
 
 void Mint::assert(bool b, const std::string& title, const std::string& fail) {
     if(!b) { 
-        std::cout << "✘ " << title << std::endl
-            << tab << "FAIL: " << fail << std::endl;
+        writeTestFail(title, "FAIL: " + fail);
         status = Status::FAIL;
         ++testsFailing;
     } else {
@@ -76,8 +75,7 @@ void Mint::assert(bool b, const std::string& title, const std::string& fail) {
 template <class T>
 void Mint::equal(const T val, const T exp, const std::string& title) {
     if(val != exp) {
-        std::cout << "✘ " << title << std::endl
-            << tab << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"" << std::endl;
+        writeTestFail(title, "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"");
         status = Status::FAIL;
         ++testsFailing;
     } else {
@@ -94,8 +92,7 @@ void Mint::throws(void f(), const std::string& title, const std::string& fail) {
         ++testsPassing;
         return;
     }
-    std::cout << "✘ " << title << std::endl
-        << tab << "FAIL: " << fail << " (function did not throw)" << std::endl;
+    writeTestFail(title, "FAIL: " << fail << " (function did not throw)");
     ++testsFailing;
 }
 
@@ -114,4 +111,9 @@ int Mint::end() {
 
 std::ostream& Mint::writeTestPass(const std::string& title) {
     return std::cout << "✔ " << title << std::endl;
+}
+
+std::ostream& Mint::writeTestFail(const std::string& title, const std::string& fail) {
+    return std::cout << "✘ " << title << std::endl
+        << tab << fail << std::endl;
 }
