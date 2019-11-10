@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "include/mint/mint.h"
+#include "../../../include/mint/mint.h"
 
 using std::cout;
 using std::endl;
@@ -17,7 +17,7 @@ int main() {
     Mint m;
 
     //Title test
-    m.title("Sample Test");
+    m.title("Testing Assertions");
 
     //Assertions
     m.equal(2, 2, "number equality");
