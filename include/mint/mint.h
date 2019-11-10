@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class Mint { 
 
@@ -75,7 +76,11 @@ void Mint::assert(bool b, const std::string& title, const std::string& fail) {
 template <class T>
 void Mint::equal(const T val, const T exp, const std::string& title) {
     if(val != exp) {
-        writeTestFail(title, "FAIL: Expected \"" << exp << "\", found: \"" << val << "\"");
+        //Construct fail string
+        std::stringstream ss;
+        ss << "FAIL: Expected \"" << exp << "\", found: \"" << val << "\""; 
+
+        writeTestFail(title, ss.str());
         status = Status::FAIL;
         ++testsFailing;
     } else {
@@ -92,7 +97,7 @@ void Mint::throws(void f(), const std::string& title, const std::string& fail) {
         ++testsPassing;
         return;
     }
-    writeTestFail(title, "FAIL: " << fail << " (function did not throw)");
+    writeTestFail(title, "FAIL: " + fail + " (function did not throw)");
     ++testsFailing;
 }
 
