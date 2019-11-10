@@ -9,6 +9,10 @@ Mint is a minimal header-only C++ test runner.
 ## Installation
 A `CMakeLists.txt` file has been added for simple linking with CMake. For more on this, check the [`examples/`](examples) directory.
 
+## Documentation
+
+Documentation can be found by checking the [`docs/`](docs) directory.
+
 ## Usage
 Using Mint is intentionally simple. The basic flow of a test program using Mint:
 
@@ -71,3 +75,12 @@ A snippet from a seperate test:
 
 FAIL! 3 tests failing with 3 tests passing. Returned with exit code "1".
 ```
+
+
+
+## Contact
+
+Questions? Comments? Suggestions? <br/>
+Open an issue, make a pull request!
+<br/><br/>
+Or, you can email me at: luis@serebii.io
