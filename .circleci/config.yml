@@ -30,9 +30,9 @@ jobs:
           name: CMake - Assertions
           command: cd examples/cmake/assertions && ./BUILD
 
-  workflows:
-    version: 2
-    everything:
-      jobs: # For reference, all jobs run in parallel
-        - minimum
-        - cmake
+workflows:
+  version: 2
+  everything:
+    jobs: # For reference, all jobs run in parallel
+      - minimum
+      - cmake
