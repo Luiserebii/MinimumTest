@@ -2,14 +2,22 @@
 
 ## Mint
 
-### void title(const std::string& title, (opt) int borderNum=2)
+#### Mint()
+
+Construct an instance of Mint.
+
+---
+
+#### void title(const std::string& title, (opt) int borderNum=2)
 
 **Params**:
 
  - title `string` - Title to print
  - (optional) borderNum `int` - Number to indent title with. Default: 2
 
-### void assert(bool b, const std::string& title, const std::string& fail)
+---
+
+#### void assert(bool b, const std::string& title, const std::string& fail)
 
 **Params**:
 
@@ -17,7 +25,9 @@
  - title `string` - Title string for the assertion test
  - fail `string` - Fail string for the assertion test
 
-### void equal(const T val, const T exp, const std::string& title)
+---
+
+#### void equal(const T val, const T exp, const std::string& title)
 
 **Params**:
 
@@ -25,7 +35,9 @@
  - exp `T` - Expected value
  - title `string` - Title string for the equality test
 
-### void throws(void f(), const std::string& title, const std::string& fail)
+---
+
+#### void throws(void f(), const std::string& title, const std::string& fail)
 
 **Params**:
 
@@ -33,9 +45,12 @@
  - title `string` - Title string for the throws test
  - fail `fail` - Fail string for the throws test
 
-## int end()
+---
+
+#### int end()
 
 **Returns**: Exit code `int`
 
+---
 
 Note: All `string` refers to the `std::string` found in the `<string>` header of the standard library. 
