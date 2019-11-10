@@ -14,4 +14,4 @@ cmake ..
 make
 
 # Run
-./simple
+./assertions

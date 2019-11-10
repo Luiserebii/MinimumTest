@@ -49,7 +49,6 @@ Output for the above test:
 ✔ integers of same value are equal
 
 SUCCESS! All tests (1) passing with no tests failing. Returned with exit code "0".
-
 ```
 
 A snippet from a seperate test:
