@@ -52,7 +52,7 @@ Output for the above test:
 ============================
   Testing Integer Equality
 ============================
-  ✔ integers of same value are equal
+  ✓ integers of same value are equal
 
 SUCCESS! All tests (1) passing with no tests failing. Returned with exit code "0".
 ```
@@ -62,14 +62,14 @@ A snippet from a seperate test:
 ======================
   Testing Assertions
 ======================
-  ✔ number equality
-  ✘ number inequality
+  ✓ number equality
+  ✗ number inequality
     FAIL: Expected "4", found: "1"
-  ✔ true
-  ✘ false
+  ✓ true
+  ✗ false
     FAIL: false is false
-  ✔ throws caught from throwing function
-  ✘ throws not caught from non-throwing function
+  ✓ throws caught from throwing function
+  ✗ throws not caught from non-throwing function
     FAIL: willNotThrow() failed to throw (function did not throw)
 
 FAIL! 3 tests failing with 3 tests passing. Returned with exit code "1".
