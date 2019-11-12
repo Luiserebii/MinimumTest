@@ -19,11 +19,7 @@ Using Mint is intentionally simple. The basic flow of a test program using Mint:
 Example:
 
 ```cpp
-#include <iostream>
 #include <mint/mint.h>
-
-using std::cout;
-using std::endl;
 
 int main() {
 

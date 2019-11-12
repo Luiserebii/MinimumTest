@@ -1,10 +1,7 @@
-#include <iostream>
 #include <string>
 #include <stdexcept>
 #include "../../../include/mint/mint.h"
 
-using std::cout;
-using std::endl;
 using std::string;
 using std::domain_error;
 

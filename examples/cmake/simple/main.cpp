@@ -1,8 +1,4 @@
-#include <iostream>
 #include <mint/mint.h>
-
-using std::cout;
-using std::endl;
 
 int main() {
 
