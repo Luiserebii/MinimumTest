@@ -20,11 +20,15 @@ class Mint {
 
         //Constructors
         Mint();
+        Mint(std::ostream& os);
 
         //Getters/setters
+        std::ostream& getOs() const { return os; }
         Status::Enum getStatus() const { return status; }
         std::string getTab() const { return tab; }
-        std::string setTab(std::string t) { tab = t; }
+
+        void setOs(ostream& o) { os = o; }
+        void setTab(std::string t) { tab = t; }
 
         //Test titling functions
         void title(const std::string& title, int borderNum=2);
@@ -39,6 +43,7 @@ class Mint {
         int end();
 
     private:
+        std::ostream os;
         Status::Enum status;
         std::string tab;
         int testsPassing;
@@ -49,6 +54,10 @@ class Mint {
 };
 
 Mint::Mint(): status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
+
+}
+
+Mint::Mint(std::ostream& os): status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
 
 }
 
