@@ -35,7 +35,7 @@ class Mint {
 
         //Assert functions       
         void assert(bool b, const std::string& title, const std::string& fail);
-        template <class T> void equal(const T val, const T exp, const std::string& title);
+        template <class T> void equal(const T& val, const T& exp, const std::string& title);
         void throws(void f(), const std::string& title, const std::string& fail);
 
         //Other
@@ -84,7 +84,7 @@ void Mint::assert(bool b, const std::string& title, const std::string& fail) {
 }
 
 template <class T>
-void Mint::equal(const T val, const T exp, const std::string& title) {
+void Mint::equal(const T& val, const T& exp, const std::string& title) {
     if(val != exp) {
         //Construct fail string
         std::stringstream ss;
