@@ -23,11 +23,11 @@ class Mint {
         Mint(std::ostream& os);
 
         //Getters/setters
-        std::ostream& getOut() { return out; }
+        std::ostream& getOut() { return *out; }
         Status::Enum getStatus() const { return status; }
         std::string getTab() const { return tab; }
 
-        //void setOut(std::ostream& os) { out = os; }
+        //void setOut(std::ostream& os) { *out = os; }
         void setTab(std::string t) { tab = t; }
 
         //Test titling functions
@@ -43,7 +43,7 @@ class Mint {
         int end();
 
     private:
-        std::ostream out;
+        std::ostream* *out;
         Status::Enum status;
         std::string tab;
         int testsPassing;
@@ -53,11 +53,11 @@ class Mint {
         std::ostream& writeTestFail(const std::string& title, const std::string& fail);
 };
 
-Mint::Mint(): out(std::cout), status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
+Mint::Mint(): out(&std::cout), status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
 
 }
 
-Mint::Mint(std::ostream& os): out(os), status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
+Mint::Mint(std::ostream& os): out(&os), status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
 
 }
 
@@ -67,7 +67,7 @@ void Mint::title(const std::string& title, int borderNum) {
     std::string border(size, '=');
     std::string pad(borderNum, ' ');
     //Print
-    out << border << std::endl << pad << title << std::endl 
+    *out << border << std::endl << pad << title << std::endl 
         << border << std::endl;
 }
 
@@ -113,10 +113,10 @@ void Mint::throws(void f(), const std::string& title, const std::string& fail) {
 
 int Mint::end() {
     if(status == Status::SUCCESS) {
-        out << std::endl << "SUCCESS! All tests (" << testsPassing << 
+        *out << std::endl << "SUCCESS! All tests (" << testsPassing << 
             ") passing with no tests failing. Returned with exit code \"" << status << "\"." << std::endl;
     } else if(status == Status::FAIL) {
-        out << std::endl << "FAIL! " << testsFailing << " tests failing with " << testsPassing 
+        *out << std::endl << "FAIL! " << testsFailing << " tests failing with " << testsPassing 
             << " tests passing. Returned with exit code \"" << status << "\"." << std::endl;
     }
     //Return status as exit code
@@ -124,16 +124,16 @@ int Mint::end() {
 }
 
 std::ostream& Mint::print(const std::string& s) {
-    return out << s << std::endl;
+    return *out << s << std::endl;
 }
 
 //✓, ✔
 std::ostream& Mint::writeTestPass(const std::string& title) {
-    return out << tab << "✓ " << title << std::endl;
+    return *out << tab << "✓ " << title << std::endl;
 }
 
 //✗, ✘
 std::ostream& Mint::writeTestFail(const std::string& title, const std::string& fail) {
-    return out << tab << "✗ " << title << std::endl
+    return *out << tab << "✗ " << title << std::endl
         << tab << tab << fail << std::endl;
 }
