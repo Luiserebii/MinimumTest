@@ -35,6 +35,7 @@ class Mint {
         void throws(void f(), const std::string& title, const std::string& fail);
 
         //Other
+        std::ostream& print(const std::string& s);
         int end();
 
     private:
@@ -111,6 +112,10 @@ int Mint::end() {
     }
     //Return status as exit code
     return status;
+}
+
+std::ostream& Mint::print(const std::string& s) {
+    return std::cout << s << std::endl;
 }
 
 //✓, ✔
