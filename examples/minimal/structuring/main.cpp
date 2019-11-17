@@ -28,6 +28,17 @@ int main() {
     m.assert(0.0 >= 0.0, ">=");
     m.assert(0.0 <= 0.0, "<=");
 
+    //Test unit - char
+    m.minititle("char");
+
+    m.equal('a', 'a', "=");
+    m.assert('a' != 'b', "!=");
+    m.assert('a' < 'b', "<");
+    m.assert('b' > 'a', ">");
+    m.assert('a' >= 'a', ">=");
+    m.assert('a' <= 'a', "<=");
+
+
     //Finish tests, and return exit code
     return m.end();
 }
