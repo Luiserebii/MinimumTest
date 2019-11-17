@@ -35,7 +35,7 @@ class Mint {
 
         //Test titling functions
         void title(const std::string& title, int borderNum=2);
-        void minititle(const std::string& title, int borderNum=2);
+        void minititle(const std::string& minititle, int borderNum=2);
 
         //Assert functions       
         void assert(bool b, const std::string& title, const std::string& fail="");
@@ -76,7 +76,7 @@ void Mint::title(const std::string& title, int borderNum) {
 }
 
 
-void Mint::minititle(const std::string& title, int borderNum) {
+void Mint::minititle(const std::string& minititle, int borderNum) {
     //Create border
     int size = title.length() + (borderNum * 2); 
     std::string border(size, '-');
