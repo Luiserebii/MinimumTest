@@ -35,6 +35,23 @@ m.title("Integers");
 
 ---
 
+#### void minititle(const std::string& minititle, (opt) int borderNum=2)
+
+Print a minititle for a group of assertions, intended to allow organizing of tests into different units.
+
+**Params**:
+
+ - minititle `string` - Title to print
+ - (optional) borderNum `int` - Number to indent title with. Default: 2
+
+**Example**:
+
+```cpp
+m.minititle("Integers");
+```
+
+---
+
 #### void assert(bool b, const std::string& title, (opt) const std::string& fail="")
 
 Test to see if an expression is true. If the test fails, and a `fail` string is provided, the `fail` string will be printed.
