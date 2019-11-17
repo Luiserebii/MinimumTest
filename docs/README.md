@@ -35,15 +35,15 @@ m.title("Integers");
 
 ---
 
-#### void assert(bool b, const std::string& title, const std::string& fail)
+#### void assert(bool b, const std::string& title, (opt) const std::string& fail="")
 
-Test to see if an expression is true. If the test fails, the `fail` string will be printed.
+Test to see if an expression is true. If the test fails, and a `fail` string is provided, the `fail` string will be printed.
 
 **Params**:
 
  - b `bool` - Expression to test
  - title `string` - Title string for the assertion test
- - fail `string` - Fail string for the assertion test
+ - (optional) fail `string` - Fail string for the assertion test. Default: ""
 
 **Example**:
 
@@ -55,7 +55,7 @@ m.assert(1 < 2, "Larger integers are larger", "Larger integer not larger");
 
 #### void equal(const T& val, const T& exp, const std::string& title)
 
-Test to see if a value `val` is equal to `exp`. If the test fails, the `fail` string will be printed.
+Test to see if a value `val` is equal to `exp`. If the test fails, a `fail` string generated internally will be printed.
 
 **Params**:
 
@@ -70,15 +70,15 @@ m.equal(1, 1, "Equal integers are equal");
 ```
 ---
 
-#### void throws(void f(), const std::string& title, const std::string& fail)
+#### void throws(void f(), const std::string& title, (opt) const std::string& fail="")
 
-Test to see if a function `f` throws an exception. If the test fails (and the function does not throw an exception), the `fail` string will be printed.
+Test to see if a function `f` throws an exception. If the test fails (and the function does not throw an exception), and a `fail` string is provided, the `fail` string will be printed.
 
 **Params**:
 
  - f `void ()` - Function to run
  - title `string` - Title string for the throws test
- - fail `fail` - Fail string for the throws test
+ - (optional) fail `fail` - Fail string for the throws test. Default: ""
 
 **Example**:
 
