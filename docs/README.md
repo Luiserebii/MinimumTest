@@ -53,7 +53,7 @@ m.assert(1 < 2, "Larger integers are larger", "Larger integer not larger");
 
 ---
 
-#### void equal(const T val, const T exp, const std::string& title)
+#### void equal(const T& val, const T& exp, const std::string& title)
 
 Test to see if a value `val` is equal to `exp`. If the test fails, the `fail` string will be printed.
 

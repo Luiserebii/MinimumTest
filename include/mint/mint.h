@@ -6,6 +6,9 @@
  *
  */
 
+#ifndef GUARD_LUISEREBII_MINT_H
+#define GUARD_LUISEREBII_MINT_H
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -137,3 +140,5 @@ std::ostream& Mint::writeTestFail(const std::string& title, const std::string& f
     return *out << tab << "✗ " << title << std::endl
         << tab << tab << fail << std::endl;
 }
+
+#endif
