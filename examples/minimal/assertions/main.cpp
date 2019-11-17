@@ -19,10 +19,10 @@ int main() {
     //Assertions
     m.equal(2, 2, "number equality");
     m.equal(1, 4, "number inequality");
-    m.assert(true, "true", "true is not true");
+    m.assert(true, "true");
     m.assert(false, "false", "false is false");
 
-    m.throws(willThrow, "throws caught from throwing function", "willThrow() failed to throw");
+    m.throws(willThrow, "throws caught from throwing function");
     m.throws(willNotThrow, "throws not caught from non-throwing function", "willNotThrow() failed to throw");
 
     //Finish tests, and return exit code
