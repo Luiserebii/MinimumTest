@@ -82,7 +82,7 @@ void Mint::minititle(const std::string& title, int borderNum) {
     std::string border(size, '-');
     std::string pad(borderNum, ' ');
     //Print
-    *out << pad << title << std::endl 
+    *out << std::endl << pad << title << std::endl 
         << border << std::endl;
 }
 
