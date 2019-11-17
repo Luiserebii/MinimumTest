@@ -27,6 +27,9 @@ jobs:
       - run:
           name: Minimum - Assertions
           command: bash -c "cd examples/minimal/assertions && ./c.sh; if [[ \$? -eq 1 ]]; then exit 0; else exit 1; fi"
+      - run:
+          name: Minimum - Structuring
+          command: cd examples/minimal/structuring && ./c.sh
 
   cmake:
     <<: *defaults
@@ -45,6 +48,9 @@ jobs:
       - run:
           name: CMake - Assertions
           command: bash -c "cd examples/cmake/assertions && ./BUILD; if [[ \$? -eq 1 ]]; then exit 0; else exit 1; fi"
+      - run:
+          name: CMake - Structuring
+          command: cd examples/cmake/structuring && ./BUILD
 
 workflows:
   version: 2
