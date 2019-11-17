@@ -37,9 +37,9 @@ class Mint {
         void title(const std::string& title, int borderNum=2);
 
         //Assert functions       
-        void assert(bool b, const std::string& title, const std::string& fail);
+        void assert(bool b, const std::string& title, const std::string& fail="");
         template <class T> void equal(const T& val, const T& exp, const std::string& title);
-        void throws(void f(), const std::string& title, const std::string& fail);
+        void throws(void f(), const std::string& title, const std::string& fail="");
 
         //Other
         std::ostream& print(const std::string& s);
@@ -53,7 +53,7 @@ class Mint {
         int testsFailing;
 
         std::ostream& writeTestPass(const std::string& title);
-        std::ostream& writeTestFail(const std::string& title, const std::string& fail);
+        std::ostream& writeTestFail(const std::string& title, const std::string& fail="");
 };
 
 Mint::Mint(): out(&std::cout), status(Status::SUCCESS), tab(std::string(2, ' ')), testsPassing(0), testsFailing(0) {
@@ -77,7 +77,7 @@ void Mint::title(const std::string& title, int borderNum) {
 
 void Mint::assert(bool b, const std::string& title, const std::string& fail) {
     if(!b) { 
-        writeTestFail(title, "FAIL: " + fail);
+        fail != "" ? writeTestFail(title, "FAIL: " + fail) : writeTestFail(title);
         status = Status::FAIL;
         ++testsFailing;
     } else {
@@ -110,7 +110,7 @@ void Mint::throws(void f(), const std::string& title, const std::string& fail) {
         ++testsPassing;
         return;
     }
-    writeTestFail(title, "FAIL: " + fail + " (function did not throw)");
+    fail != "" ? writeTestFail(title, "FAIL: " + fail + " (function did not throw)") : writeTestFail(title);
     ++testsFailing;
 }
 
@@ -137,8 +137,8 @@ std::ostream& Mint::writeTestPass(const std::string& title) {
 
 //✗, ✘
 std::ostream& Mint::writeTestFail(const std::string& title, const std::string& fail) {
-    return *out << tab << "✗ " << title << std::endl
-        << tab << tab << fail << std::endl;
+    *out << tab << "✗ " << title << std::endl;
+    return fail != "" ? *out << tab << tab << fail << std::endl : *out;
 }
 
 #endif
