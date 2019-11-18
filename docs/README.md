@@ -74,6 +74,8 @@ m.assert(1 < 2, "Larger integers are larger", "Larger integer not larger");
 
 Test to see if a value `val` is equal to `exp`. If the test fails, a `fail` string generated internally will be printed.
 
+**NOTE:** In order for this to work, the type passed must have the `==` operator overloaded. If you are using a custom class/type, please ensure it is comparable by this operator, otherwise, this will yield an error!
+
 **Params**:
 
  - val `T` - Value to test against second expected value
