@@ -71,8 +71,6 @@ A snippet from a seperate test:
 FAIL! 3 tests failing with 3 tests passing. Returned with exit code "1".
 ```
 
-
-
 ## Contact
 
 Questions? Comments? Suggestions? <br/>
