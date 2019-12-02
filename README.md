@@ -3,6 +3,7 @@
 
 ![GitHub](https://img.shields.io/github/license/Luiserebii/Mint?color=g)
 [![CircleCI](https://circleci.com/gh/Luiserebii/Mint.svg?style=svg)](https://circleci.com/gh/Luiserebii/Mint)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0f1366b46b394625aa3d416c590adbe9)](https://www.codacy.com/manual/Luiserebii/Mint?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Luiserebii/Mint&amp;utm_campaign=Badge_Grade)
 
 Mint is a minimal header-only C++ test runner.
 
