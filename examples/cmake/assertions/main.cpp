@@ -1,5 +1,5 @@
-#include <string>
 #include <stdexcept>
+#include <string>
 #include "../../../include/mint/mint.h"
 
 using std::string;

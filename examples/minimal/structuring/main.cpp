@@ -38,7 +38,6 @@ int main() {
     m.assert('a' >= 'a', ">=");
     m.assert('a' <= 'a', "<=");
 
-
     //Finish tests, and return exit code
     return m.end();
 }
